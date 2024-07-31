@@ -1,1 +1,19 @@
-`1
+```mermaid
+
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note left of browser: Rendered page
+    Note left of browser: Browser receives new note
+    Note right of browser: Browser renders the new note into the note list
+    Note right of browser: Send the new note to the server
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    Note right of browser: Request Payload {content: "submit new", date: "2024-07-31T16:12:16.059Z"}
+    server-->>browser: JSON File {message: "note created"}
+    deactivate server
+
+
+```
